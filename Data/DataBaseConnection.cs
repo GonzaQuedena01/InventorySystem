@@ -8,13 +8,41 @@ using System.Data;
 using System.Data.SQLite;
 using System.Configuration;
 
+using Entity;
+
 namespace Data
 {
-    internal class DataBaseConnection
+    public class DataBaseConnection
     {
 
-        SQLiteConnection cn = new SQLiteConnection(
-            ConfigurationManager.ConnectionStrings["sqliteconex"].ConnectionString
-        );
+        SQLiteConnection __Connection;
+
+        DataBaseConnection()
+        {
+            __Connection = new SQLiteConnection(
+                ConfigurationManager.ConnectionStrings["sqliteconex"].ConnectionString
+            );
+        }
+
+        public void RegisterUser(User user)
+        {
+            using (__Connection)
+            {
+                __Connection.Open();
+
+                string query = "INSERT INTO users (username, password, role) VALUES (@username, @password, @role)";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, __Connection))
+                {
+                    cmd.Parameters.AddWithValue("@username", user.UserName);
+                    cmd.Parameters.AddWithValue("@password", user.Password);
+                    cmd.Parameters.AddWithValue("@role", user.Role);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
     }
 }
