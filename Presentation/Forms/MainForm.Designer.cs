@@ -28,28 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.LoginBtn = new System.Windows.Forms.Button();
+            this.SignUpBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // LoginBtn
             // 
-            this.button1.Location = new System.Drawing.Point(88, 101);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 76);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Log In";
-            this.button1.UseVisualStyleBackColor = true;
+            this.LoginBtn.Location = new System.Drawing.Point(88, 101);
+            this.LoginBtn.Name = "LoginBtn";
+            this.LoginBtn.Size = new System.Drawing.Size(159, 76);
+            this.LoginBtn.TabIndex = 0;
+            this.LoginBtn.Text = "Log In";
+            this.LoginBtn.UseVisualStyleBackColor = true;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
-            // button2
+            // SignUpBtn
             // 
-            this.button2.Location = new System.Drawing.Point(88, 215);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 76);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Sign Up";
-            this.button2.UseVisualStyleBackColor = true;
+            this.SignUpBtn.Location = new System.Drawing.Point(88, 215);
+            this.SignUpBtn.Name = "SignUpBtn";
+            this.SignUpBtn.Size = new System.Drawing.Size(159, 76);
+            this.SignUpBtn.TabIndex = 1;
+            this.SignUpBtn.Text = "Sign Up";
+            this.SignUpBtn.UseVisualStyleBackColor = true;
+            this.SignUpBtn.Click += new System.EventHandler(this.SignUpBtn_Click);
             // 
             // label1
             // 
@@ -67,8 +69,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(335, 386);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SignUpBtn);
+            this.Controls.Add(this.LoginBtn);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -79,8 +81,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button LoginBtn;
+        private System.Windows.Forms.Button SignUpBtn;
         private System.Windows.Forms.Label label1;
     }
 }
