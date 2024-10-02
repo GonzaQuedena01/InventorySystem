@@ -17,7 +17,7 @@ namespace Data
 
         SQLiteConnection __Connection;
 
-        DataBaseConnection()
+        public DataBaseConnection()
         {
             __Connection = new SQLiteConnection(
                 ConfigurationManager.ConnectionStrings["sqliteconex"].ConnectionString
@@ -31,12 +31,12 @@ namespace Data
                 __Connection.Open();
 
                 string query = @"
-                    INSERT INTO users (username, password, role) 
+                    INSERT INTO users (username, password) 
                         VALUES (@username, @password)";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(query, __Connection))
                 {
-                    cmd.Parameters.AddWithValue("@username", user.UserName);
+                    cmd.Parameters.AddWithValue("@username", user.Username);
                     cmd.Parameters.AddWithValue("@password", user.Password);
 
                     cmd.ExecuteNonQuery();
